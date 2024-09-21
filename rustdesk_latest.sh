@@ -17,7 +17,7 @@ fi
 # Use jq to parse JSON data and find the asset URL
 RUSTDESK_URL_AMD64=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("x86_64") and endswith(".deb") and (contains("sciter") | not)) | .browser_download_url' | head -n 1)
 RUSTDESK_URL_ARM64=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("aarch64") and endswith(".deb") and (contains("sciter") | not)) | .browser_download_url' | head -n 1)
-RUSTDESK_URL_ARMHF=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("aarch64") and endswith(".deb")) | .browser_download_url' | head -n 1)
+RUSTDESK_URL_ARMHF=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("armv7") and endswith(".deb")) | .browser_download_url' | head -n 1)
 # armhf is ARMv7, and only has sciter version.
 
 # Check if the asset URL was found
