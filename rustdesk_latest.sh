@@ -2,9 +2,9 @@
 
 # Define the repository and the tag you want to fetch
 REPO="rustdesk/rustdesk"
-TAG="latest"  # Change this to any tag you want
-API_URL="https://api.github.com/repos/$REPO/releases/tags/$TAG"
-
+#TAG="latest"  # Change this to any tag you want
+#API_URL="https://api.github.com/repos/$REPO/releases/tags/$TAG"
+API_URL="https://api.github.com/repos/$REPO/releases/latest"
 # Fetch the release data for the specified tag using curl
 RELEASE_DATA=$(curl --retry 3 -s "$API_URL")
 
