@@ -21,14 +21,20 @@ This repo privides following architectures
 
 And `armhf` only has sciter verion.
 
-## Add GPG key
+## Update frequency
 
+* Nightly: Every 3 AM UTC, because RustDesk's Nightly will run a little over 2 hours.
+* latest: Every Saturday
+
+## Add this repo
+### Add GPG key
+Nightly and latest are sharing same GPG key.
 ```
 curl -fsSL https://raw.githubusercontent.com/xlionjuan/rustdesk-apt-repo-nightly/refs/heads/main/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/xlion-repo.gpg
 ```
 
-## Add apt source
-### For Ubuntu 24 / Debian 12 or latter (Deb822 style format)
+### Add apt source
+#### For Ubuntu 24 / Debian 12 or latter (Deb822 style format)
 
 ```bash
 sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources << EOF
@@ -41,7 +47,7 @@ Signed-By: /usr/share/keyrings/xlion-repo.gpg
 EOF
 ```
 
-### For older version
+#### For older version
 
 ```bash
 sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list << EOF
@@ -52,3 +58,14 @@ EOF
 
 > [!NOTE]  
 > Deb822 style format are designed for more human readable, older style format will still supported on newer systems.
+
+## Update to same version number of nightly
+
+Because RustDesk didn't change its version number or add special identify when releasing nightly, so you could run
+```bash
+sudo apt reinstall rustdesk
+```
+to upgrade manually, still better than download manually.
+
+> [!CAUTION]
+> Don't asking me to doing this.
