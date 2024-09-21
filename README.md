@@ -82,7 +82,7 @@ N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository
 This is because you enabled `i386`(32bit) on your apt, mainly because you're a developer or you have installed Steam 32bit library, you can ignore this, but it is annoying! Let's fix this
 
 #### Deb822
-Uncomment the line with `Architectures:
+Uncomment the line with `Architectures:`
 
 #### Older style
 Comment the line starts with `deb`, and uncomment the line that has `arch=amd64`
