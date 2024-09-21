@@ -15,8 +15,8 @@ permissions:
   
 env:
     REPO_NAME: xlion-apt-repo
-    CODENAME: main
-    COMPONENTS: nightly
+    CODENAME: nightly
+    COMPONENTS: main
     ARCHITECTURES: amd64 arm64 armhf
     # armhf is ARMv7 (32bit) 
   
@@ -46,9 +46,9 @@ jobs:
             architectures: ${{ env.ARCHITECTURES }}
             override: ./override # the location of the file within your repo, thats why checkout is needed before
             import-from-repo-url: |
-              deb-amd64 https://xlionjuan.github.io/rustdesk-apt-repo/ main latest
-              deb-arm64 https://xlionjuan.github.io/rustdesk-apt-repo/ main latest
-              deb-armhf https://xlionjuan.github.io/rustdesk-apt-repo/ main latest
+              deb-amd64 https://xlionjuan.github.io/rustdesk-apt-repo/ latest main
+              deb-arm64 https://xlionjuan.github.io/rustdesk-apt-repo/ latest main
+              deb-armhf https://xlionjuan.github.io/rustdesk-apt-repo/ latest main 
               
         - name: Upload Pages artifact
           uses: actions/upload-pages-artifact@v3
