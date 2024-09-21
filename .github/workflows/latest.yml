@@ -1,4 +1,4 @@
-name: Create Repo
+name: Create Repo for RustDesk latest
 
 on:
   #schedule:
