@@ -16,7 +16,7 @@ permissions:
 env:
     REPO_NAME: xlion-apt-repo
     CODENAME: main
-    COMPONENTS: latest
+    COMPONENTS: nightly
     ARCHITECTURES: amd64 arm64 armhf
     # armhf is ARMv7 (32bit) 
   
