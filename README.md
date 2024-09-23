@@ -60,11 +60,16 @@ EOF
 > [!NOTE]  
 > Deb822 style format are designed for more human readable, older style format will still supported on newer systems.
 
+## Install/Upgrade RustDesk
+```bash
+sudo apt update && sudo apt install rustdesk
+```
+
 ## Update to same version number of nightly
 
 Because RustDesk didn't change its version number or add special identify when releasing nightly, so you could run
 ```bash
-sudo apt reinstall rustdesk
+sudo apt update && sudo apt reinstall rustdesk
 ```
 to upgrade manually, still better than download manually.
 
