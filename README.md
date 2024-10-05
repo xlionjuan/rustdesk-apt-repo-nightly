@@ -7,7 +7,7 @@
 > You're viewing **Nightly** channel, [click me to check **latest** channel.](https://github.com/xlionjuan/rustdesk-apt-repo-latest)
 
 > [!NOTE]  
-> Same thing but [RPM](https://github.com/xlionjuan/rustdesk-apt-repo-latest) is also available.
+> Same thing but [RPM](https://github.com/xlionjuan/rustdesk-rpm-repo) is also available.
 
 This repo will use [morph027/apt-repo-action](https://github.com/morph027/apt-repo-action) to create repo, and deploy to GitHub Pages.
 
