@@ -1,11 +1,13 @@
 # rustdesk-apt-repo-nightly
 
+> [!IMPORTANT]  
+> This is ***unofficial*** [RustDesk](https://github.com/rustdesk/rustdesk/) apt repo, what I can say is *trust me bro*, it is your decision to trust me or not.
+
 > [!NOTE]  
 > You're viewing **Nightly** channel, [click me to check **latest** channel.](https://github.com/xlionjuan/rustdesk-apt-repo-latest)
 
-
-> [!IMPORTANT]  
-> This is ***unofficial*** [RustDesk](https://github.com/rustdesk/rustdesk/) apt repo, what I can say is *trust me bro*, it is your decision to trust me or not.
+> [!NOTE]  
+> Same thing but [RPM](https://github.com/xlionjuan/rustdesk-apt-repo-latest) is also available.
 
 This repo will use [morph027/apt-repo-action](https://github.com/morph027/apt-repo-action) to create repo, and deploy to GitHub Pages.
 
@@ -24,7 +26,7 @@ And `armhf` only has sciter verion.
 
 ## Update frequency
 
-* Nightly: Every 3 AM UTC, because RustDesk's Nightly will run a little over 2 hours.
+* Nightly: Every 3 AM UTC, because RustDesk's Nightly will build a little over 2 hours.
 * latest: Every Saturday
 
 ## Add this repo
