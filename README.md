@@ -1,5 +1,7 @@
 # rustdesk-apt-repo-nightly
 
+[![Create Repo for RustDesk Nightly](https://github.com/xlionjuan/rustdesk-apt-repo-nightly/actions/workflows/nightly.yml/badge.svg)](https://github.com/xlionjuan/rustdesk-apt-repo-nightly/actions/workflows/nightly.yml)
+
 > [!IMPORTANT]  
 > This is ***unofficial*** [RustDesk](https://github.com/rustdesk/rustdesk/) apt repo, what I can say is *trust me bro*, it is your decision to trust me or not.
 
