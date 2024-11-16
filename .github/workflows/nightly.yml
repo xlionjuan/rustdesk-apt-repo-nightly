@@ -50,6 +50,10 @@ jobs:
           run: |
             bash rustdesk_nightly.sh
 
+        - name: Add date to  RustDesk .deb version
+          run: |
+            bash deb-reversion.sh
+
         - uses: xlionjuan/apt-repo-action@main
           id: create-apt-repo
           with:
