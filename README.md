@@ -69,29 +69,3 @@ EOF
 sudo apt update && sudo apt install rustdesk
 ```
 
-## Update to same version number of nightly
-
-Because RustDesk didn't change its version number or add special identify when releasing nightly, so you could run
-```bash
-sudo apt update && sudo apt reinstall rustdesk
-```
-to upgrade manually, still better than download manually.
-
-> [!CAUTION]
-> Don't asking me to doing this.
-
-## FAQ
-### ***Not needed anymore.***
-### ~~I got i386 error~~
-
-~~If you got the warning like this~~
-```
-N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://xlionjuan.github.io/rustdesk-apt-repo-nightly main InRelease' doesn't support architecture 'i386'
-```
-~~This is because you enabled `i386`(32bit) on your apt, mainly because you're a developer or you have installed Steam 32bit library, you can ignore this, but it is annoying! Let's fix this~~
-
-#### ~~Deb822~~
-~~Uncomment the line with `Architectures:`~~
-
-#### ~~Older style~~
-~~Comment the line starts with `deb`, and uncomment the line that has `arch=amd64`~~
