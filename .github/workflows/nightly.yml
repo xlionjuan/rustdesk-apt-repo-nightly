@@ -72,7 +72,10 @@ jobs:
             codename: ${{ env.CODENAME }}
             components: ${{ env.COMPONENTS }}
             architectures: ${{ env.ARCHITECTURES }}
-              
+
+        - name: Copy wwwroot to the output folder
+          run: cp -r wwwroot/* ${{ steps.create-apt-repo.outputs.dir }}
+
         - name: Upload Pages artifact
           uses: actions/upload-pages-artifact@v3
           with:
