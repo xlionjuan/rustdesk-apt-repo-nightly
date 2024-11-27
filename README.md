@@ -60,7 +60,6 @@ curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.sour
 
 #### For older version
 
-
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.list | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list
 ```
