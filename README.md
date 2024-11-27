@@ -41,7 +41,6 @@ curl -fsSL https://xlionjuan.github.io/rustdesk-apt-repo-nightly/gpg.key | sudo 
 ### Add apt source
 #### For Ubuntu 24 / Debian 12 or latter (Deb822 style format)
 
-
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.sources | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources
 ```
