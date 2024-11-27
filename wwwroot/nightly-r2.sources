@@ -1,0 +1,6 @@
+# Change "nightly" to "latest" if you want to switch channel
+Types: deb
+URIs: https://rustdesk-apt-repo.xlion.dev/nightly
+Suites: main
+Components: main
+Signed-By: /usr/share/keyrings/xlion-repo.gpg
