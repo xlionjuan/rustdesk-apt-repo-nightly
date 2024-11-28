@@ -79,7 +79,12 @@ curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.list
 > Deb822 style format are designed for more human readable, older style format will still supported on newer systems.
 
 ## Install/Upgrade RustDesk
+
 ```bash
 sudo apt update && sudo apt install rustdesk
 ```
+
+### Versioning
+
+I use deb-reversion to modify the version with current date, so you'll never need to run `reinstall` in order to upgrade.
 
