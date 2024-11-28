@@ -55,7 +55,6 @@ But due to bot fight mode is enabled, some VPS providers such as AWS, Azure (Git
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.sources | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources
 ```
-
 </details>
 
 #### For older version
@@ -74,6 +73,7 @@ But due to bot fight mode is enabled, some VPS providers such as AWS, Azure (Git
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.list | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list
 ```
+</details>
 
 > [!NOTE]  
 > Deb822 style format are designed for more human readable, older style format will still supported on newer systems.
