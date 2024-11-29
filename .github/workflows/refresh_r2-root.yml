@@ -1,0 +1,48 @@
+name: Refresh R2's wwwroot
+
+on:
+  schedule:
+    - cron: '05 10 7 * *'  # Runs at 10:05, on day 7 of the month
+  workflow_dispatch:
+
+# Why this exists?
+#
+# Because Cloudflare R2 is not like GitHub Pages or Cloudflare Pages, they're kinda atomic,
+# need to upload whole directory on every deployment, Cloudflare R2 don't have this mechanism,
+# instead, I need to setup "Object lifecycle rules", that need to delete "objects" after 31 days,
+# this script make the only "index.html" fresh every month.
+  
+jobs:
+    push-to-cf-r2:
+      name: Push to Cloudflare R2
+      runs-on: ubuntu-latest
+      steps:
+        - name: Create index.html
+          shell: bash
+          run: |
+            mkdir refresh-wwwroot
+
+            tee index.html << EOF
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="refresh" content="0; url=https://github.com/xlionjuan/rustdesk-apt-repo-latest">
+                <title>Redirecting...</title>
+            </head>
+            <body>
+                <p>If you are not redirected automatically, follow this <a href="https://github.com/xlionjuan/rustdesk-apt-repo-latest">link</a>.</p>
+            </body>
+            </html>
+            EOF
+    
+        - name: Upload to Cloudflare R2
+          uses: ryand56/r2-upload-action@latest
+          with:
+            r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
+            r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+            r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+            r2-bucket: ${{ secrets.R2_BUCKET }}
+            keep-file-fresh: true
+            source-dir: refresh-wwwroot
+            destination-dir: ./
