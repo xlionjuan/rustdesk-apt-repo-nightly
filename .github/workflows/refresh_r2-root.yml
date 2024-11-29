@@ -22,7 +22,7 @@ jobs:
           run: |
             mkdir refresh-wwwroot
 
-            tee index.html << EOF
+            tee refresh-wwwroot/index.html << EOF
             <!DOCTYPE html>
             <html lang="en">
             <head>
