@@ -64,7 +64,8 @@ jobs:
           run: |
             bash deb-reversion.sh
 
-        - uses: xlionjuan/apt-repo-action@6904bef9c1e836ccccaac1f541bacf8f58be66ff
+        - name: Create apt repository
+          uses: xlionjuan/apt-repo-action@6904bef9c1e836ccccaac1f541bacf8f58be66ff
           id: create-apt-repo
           with:
             repo-name: ${{ env.REPO_NAME }}
