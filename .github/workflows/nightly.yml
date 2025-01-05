@@ -62,7 +62,7 @@ jobs:
 
         - name: Add date to RustDesk .deb version
           run: |
-            bash deb-reversion.sh
+            bash deb-reversion-v2.sh
 
         - name: Create apt repository
           uses: xlionjuan/apt-repo-action@6904bef9c1e836ccccaac1f541bacf8f58be66ff
