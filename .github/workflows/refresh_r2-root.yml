@@ -15,7 +15,7 @@ on:
 jobs:
     push-to-cf-r2:
       name: Push to Cloudflare R2
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-24.04-arm
       steps:
         - name: Create index.html
           shell: bash
