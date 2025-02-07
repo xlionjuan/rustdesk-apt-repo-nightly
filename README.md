@@ -39,7 +39,7 @@ curl -fsSL https://xlionjuan.github.io/rustdesk-apt-repo-nightly/gpg.key | sudo 
 ```
 
 ### Add apt source
-#### For Ubuntu 24 / Debian 12 or latter (Deb822 style format)
+<!--#### For Ubuntu 24 / Debian 12 or latter (Deb822 style format)-->
 
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.sources | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources
@@ -57,11 +57,13 @@ curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.sour
 ```
 </details>
 
+<!--
 #### For older version
 
 ```bash
 curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.list | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.list
 ```
+
 
 <details>
 <summary>If you wants Cloudflare...</summary>
@@ -77,6 +79,7 @@ curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly-r2.list
 
 > [!NOTE]  
 > Deb822 style format are designed for more human readable, older style format will still supported on newer systems.
+-->
 
 ## Install/Upgrade RustDesk
 
