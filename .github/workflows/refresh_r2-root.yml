@@ -11,7 +11,9 @@ on:
 # need to upload whole directory on every deployment, Cloudflare R2 don't have this mechanism,
 # instead, I need to setup "Object lifecycle rules", that need to delete "objects" after 31 days,
 # this script make the only "index.html" fresh every month.
-  
+
+permissions: {}
+
 jobs:
     push-to-cf-r2:
       name: Push to Cloudflare R2
