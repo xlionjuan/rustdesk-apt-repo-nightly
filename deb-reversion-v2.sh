@@ -17,7 +17,7 @@ for deb_file in "$SOURCE_DIR"/*.deb; do
 
             # Modify the version number and apply changes directly to the original .deb file
             fpm -t deb -s deb \
-                --version "${original_version}+${DATE}" --deb-compression xz\
+                --version "${original_version}+${DATE}" --deb-compression xz --deb-recommends xlion-repo-archive-keyring\
                 -p $PWD "$deb_file"
 
             # Remove the original file after processing
