@@ -48,7 +48,7 @@ sudo apt-get update && sudo apt-get install -y jq curl && url=$(curl -s https://
 `.sources` format are supported on all systems.
 
 ```bash
-curl -fsSl https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.sources | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources
+curl -fsSL https://xlionjuan.github.io/rustdesk-apt-repo-nightly/nightly.sources | sudo tee /etc/apt/sources.list.d/xlion-rustdesk-repo.sources
 ```
 
 <details>
