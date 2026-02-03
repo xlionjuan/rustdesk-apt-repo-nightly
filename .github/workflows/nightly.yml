@@ -79,7 +79,7 @@ jobs:
             
         - name: Add .deb to apt repository
           run: |
-            aptly repo add repo-target
+            aptly repo add repo-target .
 
         - name: Prepare ephemeral GPG home
           if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'renovate/')
