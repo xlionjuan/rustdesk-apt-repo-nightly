@@ -54,6 +54,10 @@ jobs:
           run: |
             bash rustdesk_nightly.sh
 
+        - name: Add date to RustDesk .deb version
+          run: |
+            bash deb-reversion-v2.sh
+
         - name: Download Keyring
           shell: bash
           run: |
@@ -65,10 +69,6 @@ jobs:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
             gh attestation verify --owner xlionjuan --predicate-type 'https://in-toto.io/attestation/release' xlion-repo-archive-keyring*
-
-        - name: Add date to RustDesk .deb version
-          run: |
-            bash deb-reversion-v2.sh
 
         - name: Initialize apt repository
           run: |
