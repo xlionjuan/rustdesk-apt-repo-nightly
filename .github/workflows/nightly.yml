@@ -82,7 +82,6 @@ jobs:
             aptly repo add repo-target .
 
         - name: Prepare ephemeral GPG home
-          if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'renovate/')
           shell: bash
           run: |
             set -euo pipefail
@@ -125,7 +124,7 @@ jobs:
 
         - name: Copy published aptly folder to wwwroot
           env:
-            APT_REPO_OUTPUT_DIR: ~/.aptly/public
+            APT_REPO_OUTPUT_DIR: $HOME/.aptly/public
           run: cp -r ${APT_REPO_OUTPUT_DIR}/* wwwroot
 
         - name: Upload Pages artifact
