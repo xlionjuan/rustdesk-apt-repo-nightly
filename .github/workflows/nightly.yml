@@ -93,6 +93,7 @@ jobs:
             name: aptly-workspace
             path: $HOME/.aptly
             if-no-files-found: error
+            include-hidden-files: true
 
     publish:
       name: Publish and sign repository
