@@ -82,7 +82,7 @@ jobs:
           run: |
             aptly repo add repo-target .
 
-        - name: Copy wwwroot to aply public folder
+        - name: Copy wwwroot to aptly public folder
           run: |
             mkdir -p  $HOME/.aptly/public
             cp -r wwwroot/* $HOME/.aptly/public
