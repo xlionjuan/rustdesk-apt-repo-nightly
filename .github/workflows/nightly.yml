@@ -40,7 +40,8 @@ jobs:
             --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
             ghcr.io/xlionjuan/fedora-createrepo-image:latest
 
-    build:
+    prepare:
+      name: Prepare
       runs-on: ubuntu-24.04-arm
       needs: verify
       container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
@@ -80,6 +81,30 @@ jobs:
         - name: Add .deb to apt repository
           run: |
             aptly repo add repo-target .
+
+        - name: Copy wwwroot to aply public folder
+          run: |
+            mkdir -p  $HOME/.aptly/public
+            cp -r wwwroot/* $HOME/.aptly/public
+
+        - name: Publish aptly workspace
+          uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+          with:
+            name: aptly-workspace
+            path: $HOME/.aptly/public
+            if-no-files-found: error
+
+    publish:
+      name: Publish and sign repository
+      runs-on: ubuntu-24.04-arm
+      needs: prepare
+      container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
+      steps:
+        - name: Download aptly workspace
+          uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+          with:
+            pattern: aptly-workspace
+            path: $HOME/.aptly/public
 
         - name: Prepare ephemeral GPG home
           shell: bash
@@ -129,13 +154,13 @@ jobs:
           uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
           with:
             name: github-pages
-            path: wwwroot
+            path: $HOME/.aptly/public
 
         - name: Publish Artifacts
           uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
           with:
             name: cf_r2
-            path: wwwroot
+            path: $HOME/.aptly/public
             if-no-files-found: error
 
     deploy:
@@ -145,7 +170,7 @@ jobs:
         name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
       runs-on: ubuntu-24.04-arm
-      needs: build
+      needs: publish
       permissions:
         contents: read
         pages: write
@@ -159,14 +184,13 @@ jobs:
       name: Push to Cloudflare R2
       if: github.event_name != 'pull_request'
       runs-on: ubuntu-24.04-arm
-      needs: build
+      needs: publish
       steps:
         - name: Download artifact
           uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
           with:
             pattern: cf_r2
             path: src-dir/nightly
-            merge-multiple: true
     
         - name: Upload to Cloudflare R2
           uses: ryand56/r2-upload-action@47013c9cf0012876409579ed17399005aa287b48 # v1.3.4
