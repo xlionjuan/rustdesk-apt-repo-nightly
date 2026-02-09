@@ -90,9 +90,9 @@ jobs:
         - name: Output summary
           run: |
             echo "## Aptly repo summary" >> "$GITHUB_STEP_SUMMARY"
-            echo "```" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
             aptly repo show -with-packages repo-target >> "$GITHUB_STEP_SUMMARY"
-            echo "```" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
 
         - name: Publish aptly workspace
           uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
