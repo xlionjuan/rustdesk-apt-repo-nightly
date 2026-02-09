@@ -100,6 +100,8 @@ jobs:
       runs-on: ubuntu-24.04-arm
       needs: prepare
       container: ghcr.io/xlionjuan/fedora-createrepo-image:latest
+      if: github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository
+
       steps:
         - name: Download aptly workspace
           uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
@@ -145,6 +147,7 @@ jobs:
               repo-target
 
         - name: Clean up
+          if: always()
           run: |
             rm -rf "$GNUPGHOME" || true
 
