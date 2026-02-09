@@ -163,6 +163,13 @@ jobs:
             mkdir -p /tmp/public
             cp -r ~/.aptly/public/* /tmp/public
 
+        - name: Output summary
+          run: |
+            echo "## Final published folder structure" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            tree /tmp/public >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+
         - name: Upload Pages artifact
           uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
           with:
