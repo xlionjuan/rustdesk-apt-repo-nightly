@@ -66,7 +66,7 @@ jobs:
           env:
             WORKFOLDER: ${{ env.WORKFOLDER_RD }}
           run: |
-            set -euo
+            set -euo pipefail
             cd $WORKFOLDER
             RUSTDESK_URL_AMD64=$(cat dl_urls.txt | grep '\.deb' | grep x86_64 | grep -v sciter)
             RUSTDESK_URL_ARM64=$(cat dl_urls.txt | grep '\.deb' | grep aarch64 | grep -v sciter)
