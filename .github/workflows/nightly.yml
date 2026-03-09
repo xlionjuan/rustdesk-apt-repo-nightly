@@ -53,8 +53,8 @@ jobs:
 
         - name: Define workfolder for utils
           run: |
-            echo "WORKFOLDER_RD=$(mktemp -d xlion-repo.XXXXX)" >> "$GITHUB_ENV"
-            echo "WORKFOLDER_KEYRING=$(mktemp -d xlion-repo.XXXXX)" >> "$GITHUB_ENV"
+            echo "WORKFOLDER_RD=$(mktemp -p /tmp -d xlion-repo.XXXXX)" >> "$GITHUB_ENV"
+            echo "WORKFOLDER_KEYRING=$(mktemp -p /tmp -d xlion-repo.XXXXX)" >> "$GITHUB_ENV"
 
         - name: Bootstrap repo info for rustdesk/rustdesk
           env:
