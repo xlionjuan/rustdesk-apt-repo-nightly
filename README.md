@@ -12,7 +12,7 @@
 > An [RPM](https://github.com/xlionjuan/rustdesk-rpm-repo) version is also available.
 
 > [!NOTE]  
-> Cloudflare R2 source is deprecated, but it will still available for some time.
+> Cloudflare R2 source is deprecated, but it will still be available for some time.
 
 This repo will use [aptly](https://github.com/aptly-dev/aptly) and [xlionjuan/fedora-createrepo-image](https://github.com/xlionjuan/fedora-createrepo-image) to create repo, and deploy to GitHub Pages.
 
