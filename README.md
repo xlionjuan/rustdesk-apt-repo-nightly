@@ -24,9 +24,7 @@ This repo provides the following two architectures
 
 * `amd64`  (x86_64)
 * `arm64`  (aarch64)
-* `armhf`  (armv7)
-
-And `armhf` only has sciter version.
+* `armhf`  (armv7, sciter version only)
 
 ## Update frequency
 
