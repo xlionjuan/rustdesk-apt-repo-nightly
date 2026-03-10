@@ -31,8 +31,7 @@ And `armhf` only has sciter version.
 
 ## Update frequency
 
-* Nightly: Every 3 AM UTC, because RustDesk's Nightly builds take a little over 2 hours.
-* latest: Every Saturday
+Every 3 AM UTC, because RustDesk's Nightly builds take a little over 2 hours.
 
 ## Add this repo
 ### Add GPG key
