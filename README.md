@@ -25,7 +25,6 @@ This repo provides the following architectures
 * `amd64`  (x86_64)
 * `arm64`  (aarch64)
 * `armhf`  (armv7)
-* `i386`   (x86_32) (Actually nothing, just prevent error if your system enabled `i386`.)
 
 And `armhf` only has sciter version.
 
