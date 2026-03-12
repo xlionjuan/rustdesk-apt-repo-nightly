@@ -26,6 +26,7 @@ jobs:
         - name: Create index.html
           shell: bash
           run: |
+            set -euo pipefail
             mkdir refresh-wwwroot
 
             tee refresh-wwwroot/index.html << EOF
