@@ -24,7 +24,6 @@ jobs:
       runs-on: ubuntu-24.04-arm
       steps:
         - name: Create index.html
-          shell: bash
           run: |
             set -euo pipefail
             mkdir refresh-wwwroot
