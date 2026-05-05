@@ -94,7 +94,12 @@ jobs:
         - name: Add date to RustDesk .deb version
           run: |
             set -euo pipefail
-            bash deb-reversion-v2.sh
+            xlion-repo-repackage-deb \
+              --source-dir ori \
+              --target-dir . \
+              --date-version \
+              --deb-recommends xlion-repo-archive-keyring \
+              --remove-source-dir
 
         - name: Bootstrap repo info for xlionjuan/xlion-repo-archive-keyring
           env:
