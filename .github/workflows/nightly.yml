@@ -78,17 +78,30 @@ jobs:
             set -euo pipefail
             xlion-repo-utils-gh --workfolder $WORKFOLDER --repo rustdesk/rustdesk --tag nightly
 
+        # NOTE: Upstream published a new package called `rustdesk-unattended-wayland` which has conpletely different
+        # package names, so, they can exists in same repository, and the Debain control file is properly set:
+        # ```
+        # Package: rustdesk-unattended-wayland
+        # Conflicts: rustdesk
+        # Replaces: rustdesk
+        # Provides: rustdesk
+        # ```
+        # So, dpkg will auto solve the conflict without worries.
+        # If the `rustdesk-unattended-wayland` merged to the main package in the future, this SHOULD BE REMOVED.
+        #
+        # The PR that introduce the new package: https://github.com/rustdesk/rustdesk/pull/15776
         - name: Download RustDesk
           env:
             WORKFOLDER: ${{ env.WORKFOLDER_RD }}
           run: |
             set -euo pipefail
             cd $WORKFOLDER
-            RUSTDESK_URL_AMD64=$(cat dl_urls.txt | grep '\.deb' | grep x86_64 | grep -v sciter)
+            RUSTDESK_URL_AMD64=$(cat dl_urls.txt | grep '\.deb' | grep x86_64 | grep -v sciter | grep -v rustdesk-unattended-wayland)
+            RUSTDESK_URL_AMD64_WAYLAND=$(cat dl_urls.txt | grep '\.deb' | grep x86_64 | grep rustdesk-unattended-wayland)
             RUSTDESK_URL_ARM64=$(cat dl_urls.txt | grep '\.deb' | grep aarch64 | grep -v sciter)
             RUSTDESK_URL_ARMHF=$(cat dl_urls.txt | grep '\.deb' | grep armv7)
 
-            wget2 "$RUSTDESK_URL_AMD64" "$RUSTDESK_URL_ARM64" "$RUSTDESK_URL_ARMHF"
+            wget2 "$RUSTDESK_URL_AMD64" "$RUSTDESK_URL_ARM64" "$RUSTDESK_URL_ARMHF" "$RUSTDESK_URL_AMD64_WAYLAND"
 
             xlion-repo-utils-gh --verify --workfolder $WORKFOLDER
 
