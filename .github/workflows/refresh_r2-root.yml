@@ -21,7 +21,7 @@ defaults:
 jobs:
   push-to-cf-r2:
     name: Push to Cloudflare R2
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
     steps:
         - name: Create index.html
           run: |
